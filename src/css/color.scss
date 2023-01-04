@@ -1,0 +1,50 @@
+
+
+/* Переменные $ */
+$fz: 40px;
+$color_1: blue;
+$color_2: rgb(15, 188, 15);
+
+/* Основные стили */
+.block {
+  padding: 30px;
+  font-size: 50px;
+  line-height: $fz;
+  /*  >  - селектор первого уровня*/
+  > p {
+    color: $color_1;
+  }
+  .block_text {
+    font-size: 30px;
+    span {
+      color: $color_2;
+    }
+  }
+  /* &  - когда 2 класса */
+  &.blockBig {
+    font-size: 10px;
+  }
+}
+
+/* &  - оператор родителя(block)*/
+.link {
+  color: $color_1;
+  text-decoration: underline;
+  font-size: 20px;
+  //обращаемся с помощью & к link, которая
+  //лежит в .block
+  .block & {
+    font-size: $fz;
+  }
+
+  &:hover {
+    color: $color_2;
+    font-size: $fz;
+  }
+  &:before {
+    content: "123";
+  }
+  &:after {
+    content: "!!!";
+  }
+}

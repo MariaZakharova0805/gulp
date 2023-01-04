@@ -1,0 +1,96 @@
+/* Переменные $ */
+$fz: 40px;
+$color_1: blue;
+$color_2: rgb(15, 188, 15);
+
+/* % Шаблоны  */
+%tplborder {
+  border-bottom: 3px dashed red;
+}
+
+//Миксины
+@mixin fontz($f) {
+  font-size: $f;
+}
+
+//Основные стили
+.block {
+  width: 100vw;
+  background-color: aqua;
+  padding: 30px;
+  font-size: 50px;
+  line-height: $fz;
+  /*  >  - селектор первого уровня*/
+  > p {
+    color: $color_1;
+  }
+  .block_text {
+    font-size: 30px;
+    span {
+      color: $color_2;
+    }
+  }
+  /* &  - когда 2 класса */
+  &.blockBig {
+    font-size: 10px;
+  }
+}
+
+/* &  - оператор родителя(block)*/
+.link {
+  color: $color_1;
+  text-decoration: underline;
+  font-size: 20px;
+  //обращаемся с помощью & к link, которая
+  //лежит в .block
+  .block & {
+    font-size: $fz;
+  }
+
+  &:hover {
+    color: $color_2;
+    font-size: $fz;
+  }
+  &:before {
+    content: "123";
+  }
+  &:after {
+    content: "!!!";
+  }
+  @extend %tplborder;
+}
+
+.link-2 {
+  @include fontz(100px);
+  color: rgb(118, 118, 26);
+  @extend %tplborder;
+}
+
+body {
+  margin: 5px 15px;
+  width: 5%;
+  color: #111;
+}
+i {
+  color: black;
+  font-size: 40px;
+}
+ul {
+  width: 300px;
+}
+[mytitle] {
+  cursor: pointer;
+}
+[mytitle]:after {
+  content: "";
+  transition: 0.2s;
+}
+
+[mytitle]:hover:after {
+  width: 550px;
+  content: attr(mytitle);
+  background-color: orange;
+  padding: 10px;
+  z-index: 100;
+  margin-left: 3px;
+}
