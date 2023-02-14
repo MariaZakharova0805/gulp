@@ -1,50 +1,64 @@
-
-
 /* Переменные $ */
 $fz: 40px;
 $color_1: blue;
 $color_2: rgb(15, 188, 15);
 
+/* Шрифт Nekst */
+@font-face {
+  font-family: 'Nekst';
+  src: url('../fonts/Nekst-Black.eot');
+  src: local('../fonts/Nekst Black'), local('Nekst-Black'),
+      url('../fonts/Nekst-Black.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Nekst-Black.woff2') format('woff2'),
+      url('../fonts/Nekst-Black.woff') format('woff'),
+      url('../fonts/Nekst-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+body {
+  font-family: 'Nekst';
+}
+
 /* Основные стили */
-.block {
-  padding: 30px;
-  font-size: 50px;
-  line-height: $fz;
-  /*  >  - селектор первого уровня*/
-  > p {
-    color: $color_1;
-  }
-  .block_text {
-    font-size: 30px;
-    span {
-      color: $color_2;
-    }
-  }
-  /* &  - когда 2 класса */
-  &.blockBig {
-    font-size: 10px;
-  }
-}
+// .block {
+//   padding: 30px;
+//   font-size: 50px;
+//   line-height: $fz;
+//   /*  >  - селектор первого уровня*/
+//   > p {
+//     color: $color_1;
+//   }
+//   .block_text {
+//     font-size: 30px;
+//     span {
+//       color: $color_2;
+//     }
+//   }
+//   /* &  - когда 2 класса */
+//   &.blockBig {
+//     font-size: 10px;
+//   }
+// }
 
-/* &  - оператор родителя(block)*/
-.link {
-  color: $color_1;
-  text-decoration: underline;
-  font-size: 20px;
-  //обращаемся с помощью & к link, которая
-  //лежит в .block
-  .block & {
-    font-size: $fz;
-  }
+// /* &  - оператор родителя(block)*/
+// .link {
+//   color: $color_1;
+//   text-decoration: underline;
+//   font-size: 20px;
+//   //обращаемся с помощью & к link, которая
+//   //лежит в .block
+//   .block & {
+//     font-size: $fz;
+//   }
 
-  &:hover {
-    color: $color_2;
-    font-size: $fz;
-  }
-  &:before {
-    content: "123";
-  }
-  &:after {
-    content: "!!!";
-  }
-}
+//   &:hover {
+//     color: $color_2;
+//     font-size: $fz;
+//   }
+//   &:before {
+//     content: "123";
+//   }
+//   &:after {
+//     content: "!!!";
+//   }
+// }
